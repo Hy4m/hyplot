@@ -22,7 +22,6 @@ as_matrix_data.matrix <- function(x, name = NULL, ...)
   }
 
   x <- rlang::set_names(list(x), name)
-
   matrix_data(x)
 }
 

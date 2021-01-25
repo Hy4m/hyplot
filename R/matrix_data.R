@@ -17,7 +17,6 @@ matrix_data <- function(x,
   }
   mat <- lapply(x, as.matrix)
   mat <- check_matrix(mat, row_names, col_names)
-
   structure(.Data = mat, class = "matrix_data")
 }
 
