@@ -19,6 +19,11 @@ a ggplot object.
 \description{
 Initialize a new hyplot
 }
+\examples{
+library(ggplot2)
+hyplot(mtcars) +
+  geom_tile(aes(fill = mtcars))
+}
 \author{
 Hou Yun
 }

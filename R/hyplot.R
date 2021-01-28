@@ -10,11 +10,20 @@
 #' @importFrom ggplot2 scale_y_discrete
 #' @importFrom utils modifyList
 #' @rdname hyplot
+#' @examples
+#' library(ggplot2)
+#' hyplot(mtcars) +
+#'   geom_tile(aes(fill = mtcars))
 #' @author Hou Yun
 #' @export
 hyplot <- function(md, mapping = NULL, ...) {
   if (!is_matrix_data(md) && !is_md_tbl(md)) {
-    md <- as_matrix_data(md)
+    if (!"name" %in% names(list(...))) {
+      nm <- deparse(substitute(md))
+      md <- as_matrix_data(md, name = nm, ...)
+    } else {
+      md <- as_matrix_data(md, ...)
+    }
   }
 
   if (is_matrix_data(md)) {
@@ -27,6 +36,7 @@ hyplot <- function(md, mapping = NULL, ...) {
   } else {
     mapping <- modifyList(base_mapping, mapping)
   }
+
   p <- ggplot(data = md,
               mapping = mapping)
   p <- p + scale_x_discrete(limits = col_names(md)) +
