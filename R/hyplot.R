@@ -43,7 +43,7 @@ hyplot <- function(md, mapping = NULL, ...) {
            scale_y_discrete(limits = rev(row_names(md)))
 
   # adjust the default theme
-  p <- p + theme_hy(aspect.ratio = nrows(md) / ncols(md))
+  p <- p + theme_hy()
   class(p) <- c("hyplot", class(p))
   p
 }
