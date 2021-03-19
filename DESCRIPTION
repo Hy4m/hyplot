@@ -24,9 +24,13 @@ Imports:
     tibble,
     utils
 Suggests:
+    ade4, 
+    ambient,
     ggraph,
     knitr,
     picante,
+    relaimpo, 
+    rfPermute, 
     WGCNA
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
